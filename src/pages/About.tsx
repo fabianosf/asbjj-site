@@ -16,14 +16,14 @@ const About = () => {
       image: mestreImage,
     },
     {
-      name: "Professora Ana Santos",
+      name: "Professora Anna Carolina",
       belt: "Faixa Preta 3º Grau",
       specialty: "Jiu-Jitsu Feminino e Kids",
       experience: "+15 anos de experiência, Campeã Mundial",
       image: anaImage,
     },
     {
-      name: "Professores Alexandre Salgado e Ana Carolina",
+      name: "Professores Alexandre Salgado e Anna Carolina",
       belt: "Faixa Preta 3º Grau",
       specialty: "Competição e Fundamentos",
       experience: "",

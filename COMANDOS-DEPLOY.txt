@@ -1,0 +1,101 @@
+================================================================================
+COMANDOS PRONTOS PARA DEPLOY - ASBJJ.COM.BR
+================================================================================
+Copie e cole cada bloco de comandos no terminal do servidor VPS
+================================================================================
+
+PASSO 1: Conectar ao servidor
+--------------------------------------------------------------------------------
+ssh root@92.113.33.16
+(ou o usuário que você usa)
+
+
+PASSO 2: Criar diretório e clonar repositório
+--------------------------------------------------------------------------------
+mkdir -p /var/www/asbjj.com.br
+cd /var/www/
+git clone https://github.com/fabianosf/asbjj-site.git asbjj.com.br
+cd asbjj.com.br
+
+
+PASSO 3: Instalar dependências e fazer build
+--------------------------------------------------------------------------------
+npm install
+npm run build
+
+
+PASSO 4: Configurar permissões
+--------------------------------------------------------------------------------
+sudo chown -R www-data:www-data /var/www/asbjj.com.br
+sudo chmod -R 755 /var/www/asbjj.com.br
+
+
+PASSO 5: Criar configuração do Nginx
+--------------------------------------------------------------------------------
+sudo nano /etc/nginx/sites-available/asbjj.com.br
+
+(Depois cole o conteúdo abaixo e salve com Ctrl+X, Y, Enter)
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name asbjj.com.br www.asbjj.com.br;
+
+    root /var/www/asbjj.com.br/dist;
+    index index.html;
+
+    access_log /var/log/nginx/asbjj-access.log;
+    error_log /var/log/nginx/asbjj-error.log;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+
+    client_max_body_size 10M;
+}
+
+
+PASSO 6: Ativar site e recarregar Nginx
+--------------------------------------------------------------------------------
+sudo ln -s /etc/nginx/sites-available/asbjj.com.br /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+PASSO 7: Verificar se está funcionando
+--------------------------------------------------------------------------------
+# Ver status do Nginx
+sudo systemctl status nginx
+
+# Ver logs em tempo real
+sudo tail -f /var/log/nginx/asbjj-access.log
+
+# Acesse no navegador: http://asbjj.com.br
+
+
+================================================================================
+OPCIONAL: Configurar SSL/HTTPS (Recomendado)
+================================================================================
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d asbjj.com.br -d www.asbjj.com.br
+
+
+================================================================================
+ATUALIZAR O SITE (quando fizer mudanças)
+================================================================================
+cd /var/www/asbjj.com.br
+git pull origin master
+npm install
+npm run build
+sudo systemctl reload nginx
+
