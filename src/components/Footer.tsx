@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, MessageCircle, ExternalLink, Globe } from "lucide-react";
 import logoImage from "@/assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-primary-foreground/20 pb-6">
           {/* Logo e Descrição */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -121,12 +121,61 @@ const Footer = () => {
               </a>
             </div>
           </div>
+
+          {/* Desenvolvido por */}
+          <div>
+            <h3 className="font-display font-bold text-lg mb-3 text-accent whitespace-nowrap">Desenvolvido por: Fabiano Freitas</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="tel:+5521994078286"
+                  className="flex items-center text-primary-foreground/80 hover:text-accent transition-colors text-sm"
+                >
+                  <Phone className="h-5 w-5 mr-2 flex-shrink-0" />
+                  (21) 99407-8286 (Ligação)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://api.whatsapp.com/send/?phone=5521994078286&text=Ol%C3%A1%21+Vi+seu+site+e+gostaria+de+conversar+sobre+um+projeto."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-primary-foreground/80 hover:text-green-500 transition-colors text-sm"
+                >
+                  <MessageCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+                  Converse no WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/fabianosfreitas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-primary-foreground/80 hover:text-blue-400 transition-colors text-sm"
+                >
+                  <ExternalLink className="h-5 w-5 mr-2 flex-shrink-0" />
+                  Veja meu Portfólio/LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://fabianosf.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-primary-foreground/80 hover:text-purple-400 transition-colors text-sm"
+                >
+                  <Globe className="h-5 w-5 mr-2 flex-shrink-0" />
+                  Visite meu Site
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Copyright */}
         <div className="border-t border-primary-foreground/20 pt-6 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Fabiano Sousa de Freitas. Todos os direitos reservados.
+            © {new Date().getFullYear()} Fabiano Sousa de Freitas. <b>Desenvolvimento e manutenção por Fabiano</b>.
           </p>
         </div>
       </div>
