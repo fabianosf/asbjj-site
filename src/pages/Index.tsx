@@ -80,7 +80,15 @@ const Index = () => {
           name: "Onde fica a academia de Jiu-Jitsu ASBJJ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "A ASBJJ está localizada na Blvd. 28 de Setembro, 227 - Vila Isabel, Rio de Janeiro, RJ. Estamos na Zona Norte do Rio de Janeiro, próximo ao Maracanã e Tijuca.",
+            text: "A ASBJJ está localizada na Blvd. 28 de Setembro, 227 - Vila Isabel, Rio de Janeiro, RJ. Estamos na Zona Norte do Rio de Janeiro, próximo ao Maracanã e Tijuca. Atendemos alunos de Tijuca, Vila Isabel, Maracanã, Grajaú, Méier e toda a região.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "A ASBJJ atende alunos de quais bairros?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A ASBJJ atende alunos de Tijuca, Vila Isabel, Maracanã, Grajaú, Méier, Andaraí, Praça da Bandeira, Engenho Novo e toda a Zona Norte do Rio de Janeiro. Nossa localização em Vila Isabel é estratégica e de fácil acesso.",
           },
         },
         {
@@ -153,7 +161,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               Somos uma academia de Jiu-Jitsu no Rio de Janeiro, localizada em Vila Isabel, dedicada ao ensino de Jiu-Jitsu Brasileiro com excelência técnica e
               respeito aos valores tradicionais. Nossa missão é formar não apenas atletas, mas
-              indivíduos disciplinados, confiantes e resilientes através da arte suave. A ASBJJ é referência em Jiu-Jitsu na Zona Norte do Rio de Janeiro.
+              indivíduos disciplinados, confiantes e resilientes através da arte suave. A ASBJJ é referência em Jiu-Jitsu na Zona Norte do Rio de Janeiro, atendendo alunos de <strong>Tijuca, Vila Isabel, Maracanã, Grajaú, Méier</strong> e toda a região.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="default" size="lg" asChild>

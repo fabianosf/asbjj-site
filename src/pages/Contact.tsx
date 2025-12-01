@@ -291,6 +291,33 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Áreas Atendidas */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl mb-4 text-foreground">
+                Atendemos Toda a Zona Norte do Rio de Janeiro
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Nossa localização em Vila Isabel é estratégica e de fácil acesso para alunos de diversos bairros da Zona Norte.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                {["Tijuca", "Vila Isabel", "Maracanã", "Grajaú", "Méier"].map((bairro) => (
+                  <div
+                    key={bairro}
+                    className="bg-secondary p-4 rounded-lg border border-border"
+                  >
+                    <p className="font-semibold text-foreground">{bairro}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-6">
+                E também atendemos Andaraí, Praça da Bandeira, Engenho Novo e toda a região próxima.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Mapa */}
         <section className="py-16 bg-secondary">
           <div className="container mx-auto px-4">
