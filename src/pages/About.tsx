@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Heart, Users, Award } from "lucide-react";
+import { siteConfig } from "@/config/seo";
 import anaImage from "@/assets/ana.jpg";
 import mestreImage from "@/assets/mestre.jpg";
 import elesImage from "@/assets/eles.jpg";
@@ -56,6 +58,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.about} canonical={`${siteConfig.url}/sobre`} />
       <Navigation />
       <main className="pt-20">
         {/* Header */}
@@ -65,7 +68,7 @@ const About = () => {
               Sobre Nossa Academia
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-3xl">
-              Mais do que uma academia, somos uma família dedicada à filosofia e prática do Jiu-Jitsu.
+              Mais do que uma academia de Jiu-Jitsu no Rio de Janeiro, somos uma família dedicada à filosofia e prática do Jiu-Jitsu. Localizada em Vila Isabel, a ASBJJ é referência em ensino de Jiu-Jitsu na Zona Norte do Rio de Janeiro.
             </p>
           </div>
         </section>

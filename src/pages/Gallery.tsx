@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/seo";
 import heroImage from "@/assets/hero-jiujitsu.jpg";
 import galleryHeroImage from "@/assets/gallery-aula-progresso.jpg";
 import professorImage from "@/assets/professor.jpg";
@@ -28,6 +30,7 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.gallery} canonical={`${siteConfig.url}/galeria`} />
       <Navigation />
       <main className="pt-20">
         {/* Header */}

@@ -1,8 +1,26 @@
+# Robots.txt para ASBJJ - Academia de Jiu-Jitsu Rio de Janeiro
+
+# Permitir todos os crawlers
+User-agent: *
+Allow: /
+
+# Bloquear apenas arquivos desnecessários
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Crawlers específicos
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /src/assets/
+Allow: /public/
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +28,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Sitemap
+Sitemap: https://asbjj.com.br/sitemap.xml

@@ -1,8 +1,10 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ModalityCard from "@/components/ModalityCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/seo";
 import kidsImage from "@/assets/kids-class.jpg";
 import womensImage from "@/assets/womens-class.jpg";
 import adultImage from "@/assets/adult-class.jpg";
@@ -46,6 +48,7 @@ const Classes = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.classes} canonical={`${siteConfig.url}/modalidades`} />
       <Navigation />
       <main className="pt-20">
         {/* Header */}
@@ -55,8 +58,7 @@ const Classes = () => {
               Nossas Modalidades
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-3xl">
-              Programas especializados para todas as idades e níveis de experiência. Encontre a
-              modalidade perfeita para você.
+              Programas especializados de Jiu-Jitsu no Rio de Janeiro para todas as idades e níveis de experiência. Aulas de Jiu-Jitsu adulto, infantil e feminino em Vila Isabel. Encontre a modalidade perfeita para você.
             </p>
           </div>
         </section>

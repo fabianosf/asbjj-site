@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/seo";
 import { Clock } from "lucide-react";
 
 const Schedule = () => {
@@ -73,6 +75,7 @@ const Schedule = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.schedule} canonical={`${siteConfig.url}/horarios`} />
       <Navigation />
       <main className="pt-20">
         {/* Header */}

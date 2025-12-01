@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { siteConfig } from "@/config/seo";
 import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 
 const Contact = () => {
@@ -76,6 +78,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.contact} canonical={`${siteConfig.url}/contato`} />
       <Navigation />
       <main className="pt-20">
         {/* Header */}

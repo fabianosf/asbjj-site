@@ -1,10 +1,13 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ModalityCard from "@/components/ModalityCard";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Heart, Users, Trophy, Calendar, Star } from "lucide-react";
+import { siteConfig } from "@/config/seo";
 import kidsImage from "@/assets/kids-class.jpg";
 import womensImage from "@/assets/womens-class.jpg";
 import adultImage from "@/assets/adult-class.jpg";
@@ -66,8 +69,77 @@ const Index = () => {
     },
   ];
 
+  // FAQ Schema para SEO
+  useEffect(() => {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Onde fica a academia de Jiu-Jitsu ASBJJ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A ASBJJ está localizada na Blvd. 28 de Setembro, 227 - Vila Isabel, Rio de Janeiro, RJ. Estamos na Zona Norte do Rio de Janeiro, próximo ao Maracanã e Tijuca.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quais modalidades de Jiu-Jitsu a ASBJJ oferece?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oferecemos aulas de Jiu-Jitsu para adultos, crianças (Kids) e turmas exclusivas para mulheres. Todas as modalidades são ministradas por professores faixa preta experientes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Como agendar uma aula experimental de Jiu-Jitsu?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Você pode agendar sua aula experimental gratuita entrando em contato pelo telefone (21) 96537-1514 ou através do formulário de contato em nosso site. A primeira aula é totalmente gratuita e sem compromisso.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "A ASBJJ oferece aulas de Jiu-Jitsu para iniciantes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sim! Temos turmas específicas para iniciantes, onde você aprenderá os fundamentos do Jiu-Jitsu de forma segura e progressiva. Nossos professores são especializados em ensinar pessoas que nunca praticaram antes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quais são os horários das aulas de Jiu-Jitsu na ASBJJ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oferecemos aulas em diversos horários durante a semana, incluindo manhã, tarde e noite. Para ver os horários completos, acesse a página de horários em nosso site ou entre em contato conosco.",
+          },
+        },
+      ],
+    };
+
+    let script = document.getElementById("faq-structured-data");
+    if (script) {
+      script.remove();
+    }
+
+    script = document.createElement("script");
+    script.id = "faq-structured-data";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+
+    return () => {
+      const script = document.getElementById("faq-structured-data");
+      if (script) {
+        script.remove();
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...siteConfig.pages.home} canonical={siteConfig.url} />
       <Navigation />
       <Hero />
 
@@ -79,9 +151,9 @@ const Index = () => {
               Mais do que Luta, um Estilo de Vida
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Somos uma academia dedicada ao ensino de Jiu-Jitsu Brasileiro com excelência técnica e
+              Somos uma academia de Jiu-Jitsu no Rio de Janeiro, localizada em Vila Isabel, dedicada ao ensino de Jiu-Jitsu Brasileiro com excelência técnica e
               respeito aos valores tradicionais. Nossa missão é formar não apenas atletas, mas
-              indivíduos disciplinados, confiantes e resilientes através da arte suave.
+              indivíduos disciplinados, confiantes e resilientes através da arte suave. A ASBJJ é referência em Jiu-Jitsu na Zona Norte do Rio de Janeiro.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="default" size="lg" asChild>
